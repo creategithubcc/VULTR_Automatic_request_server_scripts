@@ -45,9 +45,14 @@ for i in range(0, 15):#循环创建15次
         print("创建失败，跳过！")
         continue
 
-    while True:
         try:
             breakserver(SUBID1)
         except:
-            print("诶呀删不掉，等60s再试一次！")
-            time.sleep(60)
+            while True:
+                print("还是删不掉，等20s后再试一次！")
+                time.sleep(20)
+                try:
+                    breakserver(SUBID1)
+                    break
+                except:
+                    continue
